@@ -1,0 +1,15 @@
+# PR-Agent config override for this benchmark.
+#
+# Both of these are OFF by default in PR-Agent's own configuration.toml.
+# Enabling them is what lets us score every review against a real,
+# structured severity signal instead of inventing our own from scratch.
+#
+# Usage: point PR-Agent at this file (e.g. via --config_file, or by placing
+# it as .pr_agent.toml in the working directory PR-Agent is invoked from),
+# or set the equivalent environment variables at run time:
+#   CONFIG__REQUIRE_RISK_ASSESSMENT=true
+#   CONFIG__REQUIRE_MERGE_RECOMMENDATION=true
+
+[config]
+require_risk_assessment = true       # adds risk_level: low | medium | high
+require_merge_recommendation = true  # adds merge_recommendation: safe_to_merge | merge_with_caution | changes_required
